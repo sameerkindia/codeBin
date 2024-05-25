@@ -3,8 +3,13 @@
   <nav>
     <ul>
       <li><a routerLink="/create" routerLinkActive="active">Create</a></li>
+
+      @if(authService.isLoggedin()){
+      <li (click)="authService.signout()">Sign Out</li>
+      } @else {
       <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
       <li><a routerLink="/signup" routerLinkActive="active">Signup</a></li>
+      }
     </ul>
   </nav>
 </div>
