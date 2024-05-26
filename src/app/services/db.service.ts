@@ -9,13 +9,14 @@ import {
 } from 'firebase/firestore';
 import { AuthService } from './auth.service';
 import { Snippet } from '../../models/snippets';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DbService {
   private db?: any;
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private route: Router) {
     this.db = getFirestore();
   }
 
@@ -26,6 +27,8 @@ export class DbService {
         ...snippet,
         by: this.authService.getUid(),
       });
+
+      this.route.navigate(['/']);
       console.log('Document written with ID: ', docRef.id);
     } catch (e) {
       console.error('Error adding document: ', e);
@@ -46,6 +49,7 @@ export class DbService {
 
   async getSnippetById(docId: string) {
     const docRef = doc(this.db, 'snippets', docId);
+
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {

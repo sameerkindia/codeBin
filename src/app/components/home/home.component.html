@@ -1,1 +1,14 @@
-<p>home works!</p>
+<div class="snippet-list">
+  <h1>Home</h1>
+
+  <ul>
+    @if(items.length < 0){
+    <li>No Data Found</li>
+    } @else{ @for(item of items ; track item.title){
+
+    <li>
+      <a [routerLink]="['/snippet', item.id]">{{ item.title }}</a>
+    </li>
+    } }
+  </ul>
+</div>

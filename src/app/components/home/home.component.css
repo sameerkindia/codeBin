@@ -1,0 +1,23 @@
+.snippet-list {
+  text-align: center;
+}
+
+.snippet-list ul {
+  text-align: left;
+  padding: 1rem;
+}
+
+.snippet-list li {
+  list-style: none;
+}
+
+.snippet-list a {
+  display: block;
+  color: black;
+  font-size: 1.5rem;
+  text-decoration: none;
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
